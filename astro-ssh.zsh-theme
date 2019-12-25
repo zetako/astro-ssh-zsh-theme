@@ -22,12 +22,25 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="$YS_VCS_PROMPT_SUFFIX"
 ZSH_THEME_GIT_PROMPT_DIRTY="$YS_VCS_PROMPT_DIRTY"
 ZSH_THEME_GIT_PROMPT_CLEAN="$YS_VCS_PROMPT_CLEAN"
 
+# Host
+local hostname="%{$fg_bold[black]%}%m"
 
 # Prompt format: \n # DIRECTORY [GIT_BRANCH STATE GIT_SHA] [TIME] \n ➜
-PROMPT="
+if [[ -n $SSH_CONNECTION ]]; then
+   PROMPT="
+%{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
+${hostname}%{$reset_color%} \
+%{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
+${git_info}\
+${git_sha}\
+%{$fg[white]%}[%*]
+%${ret_status}%{$reset_color%}"
+else
+   PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${git_info}\
 ${git_sha}\
 %{$fg[white]%}[%*]
 %${ret_status}%{$reset_color%}"
+fi
