@@ -1,5 +1,6 @@
 # Astro-SSH zsh theme
-Astro theme is based on [`ys`](http://blog.ysmood.org/my-ys-terminal-theme/) theme and `robbyrushell` (default theme) theme. 
+Astro theme is based on [`ys`](http://blog.ysmood.org/my-ys-terminal-theme/) theme and `robbyrushell` (default theme) theme.
+
 Astro-SSH theme is based on Astro theme with a patch to show hostname when using ssh connect 
 
 ## Screenshots
